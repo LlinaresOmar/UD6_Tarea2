@@ -10,7 +10,7 @@ public class DiasLluvia {
 
     private boolean registroDia(int mes, int dia, boolean haLlovido){
         boolean registro = false;
-        if ((mes > 0 && mes <= 12)) {
+        if ((mes >= 0 && mes <= 12)) {
             if (mes == 1){
                 if (dia > 1 && dia < 29){
                     calendario[mes][dia] = haLlovido;
