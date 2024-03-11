@@ -9,4 +9,10 @@ class DiasLluviaTest {
         diasLluvia = new DiasLluvia();
         assertTrue(diasLluvia.registroDia(1, 1, true));
     }
+
+    @Test
+    public void registroDiaMal(){
+        diasLluvia = new DiasLluvia();
+        assertFalse(diasLluvia.registroDia(0, 12, true));
+    }
 }
