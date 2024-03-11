@@ -11,18 +11,18 @@ public class DiasLluvia {
     private boolean registroDia(int mes, int dia, boolean haLlovido){
         boolean registro = false;
         if ((mes > 0 && mes <= 12)) {
-            if (mes == 2){
+            if (mes == 1){
                 if (dia > 1 && dia < 29){
                     calendario[mes][dia] = haLlovido;
                     registro = true;
                 }
             } else if (mes%2 == 0){
-                if (dia > 1 && dia < 30){
+                if (dia > 1 && dia < 31){
                     calendario[mes][dia] = haLlovido;
                     registro = true;
                 }
             } else {
-                if (dia > 1 && dia < 31){
+                if (dia > 1 && dia < 30){
                     calendario[mes][dia] = haLlovido;
                     registro = true;
                 }
@@ -57,7 +57,7 @@ public class DiasLluvia {
                 if (calendario[i][j]) {
                     if (i < 3) {
                         diasTrimestre1++;
-                    } else if (i >= 3 && i < 6) {
+                    } else if (i >= 3 || i < 6) {
                         diasTrimestre2++;
                     } else if (i >= 6 && i < 9) {
                         diasTrimestre3++;
@@ -78,6 +78,20 @@ public class DiasLluvia {
             trimestreMasLLuvioso = 4;
         }
         return diasTrimestre1;
+    }
+
+    int primerDiaLluvia(){
+        int diaLluvia = 0, mesLluvia = 0, diaAnyoLluvia = 0;
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 31; j++) {
+                if (calendario[i][j]){
+                    mesLluvia = i;
+                    diaLluvia = j;
+                    break;
+                }
+            }
+        }
+
     }
 
 }
