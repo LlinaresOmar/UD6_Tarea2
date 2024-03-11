@@ -17,12 +17,12 @@ public class DiasLluvia {
                     registro = true;
                 }
             } else if (mes%2 == 0){
-                if (dia >= 1 && dia <= 31){
+                if (dia >= 1 && dia <= 30){
                     calendario[mes-1][dia-1] = haLlovido;
                     registro = true;
                 }
             } else {
-                if (dia >= 1 && dia <= 30){
+                if (dia >= 1 && dia <= 31){
                     calendario[mes-1][dia-1] = haLlovido;
                     registro = true;
                 }
