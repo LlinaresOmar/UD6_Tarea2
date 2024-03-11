@@ -34,4 +34,16 @@ public class DiasLluvia {
     boolean consultaDia(int mes, int dia){
         return calendario[mes][dia];
     }
+
+    int contarDiasLluvia(){
+        int diasQueHaLlovido = 0;
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 31; j++) {
+                if (calendario[i][j] == true){
+                    diasQueHaLlovido++;
+                }
+            }
+        }
+        return diasQueHaLlovido;
+    }
 }
