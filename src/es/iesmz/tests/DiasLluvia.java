@@ -16,7 +16,7 @@ public class DiasLluvia {
                     calendario[mes][dia] = haLlovido;
                     registro = true;
                 }
-            } else if (mes%2 == 0 && mes!= 2){
+            } else if (mes%2 == 0){
                 if (dia > 1 && dia < 30){
                     calendario[mes][dia] = haLlovido;
                     registro = true;
@@ -31,4 +31,7 @@ public class DiasLluvia {
         return registro;
     }
 
+    boolean consultaDia(int mes, int dia){
+        return calendario[mes][dia];
+    }
 }
