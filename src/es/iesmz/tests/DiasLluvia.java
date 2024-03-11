@@ -10,20 +10,20 @@ public class DiasLluvia {
 
     private boolean registroDia(int mes, int dia, boolean haLlovido){
         boolean registro = false;
-        if ((mes >= 0 && mes <= 12)) {
-            if (mes == 1){
-                if (dia > 1 && dia < 29){
-                    calendario[mes][dia] = haLlovido;
+        if ((mes >= 1 && mes <= 12)) {
+            if (mes == 2){
+                if (dia >= 1 && dia <= 29){
+                    calendario[mes-1][dia-1] = haLlovido;
                     registro = true;
                 }
             } else if (mes%2 == 0){
-                if (dia > 1 && dia < 31){
-                    calendario[mes][dia] = haLlovido;
+                if (dia >= 1 && dia <= 31){
+                    calendario[mes-1][dia-1] = haLlovido;
                     registro = true;
                 }
             } else {
-                if (dia > 1 && dia < 30){
-                    calendario[mes][dia] = haLlovido;
+                if (dia >= 1 && dia <= 30){
+                    calendario[mes-1][dia-1] = haLlovido;
                     registro = true;
                 }
             }
@@ -32,7 +32,7 @@ public class DiasLluvia {
     }
 
     boolean consultaDia(int mes, int dia){
-        return calendario[mes][dia];
+        return calendario[mes-1][dia-1];
     }
 
     int contarDiasLluvia(){
@@ -57,11 +57,11 @@ public class DiasLluvia {
                 if (calendario[i][j]) {
                     if (i < 3) {
                         diasTrimestre1++;
-                    } else if (i >= 3 || i < 6) {
+                    } else if (i < 6) {
                         diasTrimestre2++;
-                    } else if (i >= 6 && i < 9) {
+                    } else if (i < 9) {
                         diasTrimestre3++;
-                    } else if (i >= 9 && i < 12) {
+                    } else {
                         diasTrimestre4++;
                     }
                 }
@@ -77,7 +77,7 @@ public class DiasLluvia {
         } else if (diasTrimestre4 > diasTrimestre2 && diasTrimestre4 > diasTrimestre3 && diasTrimestre4 > diasTrimestre1){
             trimestreMasLLuvioso = 4;
         }
-        return diasTrimestre1;
+        return trimestreMasLLuvioso;
     }
 
     int primerDiaLluvia(){
@@ -85,13 +85,16 @@ public class DiasLluvia {
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 31; j++) {
                 if (calendario[i][j]){
+                    diaLluvia = j +1;
                     mesLluvia = i;
-                    diaLluvia = j;
-                    break;
+                } else {
+                    diaLluvia = -1;
+                    mesLluvia = -1;
                 }
             }
         }
-
+        diaAnyoLluvia = mesLluvia*(30+1)+(mesLluvia/2)+diaLluvia;
+        return diaAnyoLluvia;
     }
 
 }
