@@ -28,4 +28,17 @@ class DiasLluviaTest {
         assertFalse(diasLluvia.registroDia(2, 31, true));
     }
 
+    @Test
+    public void constaDiaBien1(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(1, 1, true);
+        assertTrue(diasLluvia.consultaDia(1, 1));
+    }
+
+    @Test
+    public void constaDiaBien2(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(12, 16, true);
+        assertTrue(diasLluvia.consultaDia(12, 16));
+    }
 }
