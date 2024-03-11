@@ -63,4 +63,35 @@ class DiasLluviaTest {
         assertNotEquals(2, diasLluvia.contarDiasLluvia());
     }
 
+    @Test
+    void trimestreMasLluvia1(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(1, 2, true);
+        diasLluvia.registroDia(2, 6, true);
+        diasLluvia.registroDia(4, 5, true);
+        diasLluvia.registroDia(9,30, true);
+        assertEquals(1, diasLluvia.trimestreLluvioso());
+    }
+
+    @Test
+    void trimestreMasLluvia2(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(1, 2, true);
+        diasLluvia.registroDia(2, 6, true);
+        diasLluvia.registroDia(9, 5, true);
+        diasLluvia.registroDia(9,30, true);
+        assertEquals(0, diasLluvia.trimestreLluvioso());
+    }
+    //Si llueve lo mismo en dos trimestres devuelve 0
+
+    @Test
+    void trimestreLLuviaMal1(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(1, 2, true);
+        diasLluvia.registroDia(2, 6, true);
+        diasLluvia.registroDia(4, 5, true);
+        diasLluvia.registroDia(9,30, true);
+        assertNotEquals(2, diasLluvia.trimestreLluvioso());
+    }
+
 }
