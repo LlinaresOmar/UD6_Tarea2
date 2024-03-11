@@ -39,11 +39,45 @@ public class DiasLluvia {
         int diasQueHaLlovido = 0;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 31; j++) {
-                if (calendario[i][j] == true){
+                if (calendario[i][j]){
                     diasQueHaLlovido++;
                 }
             }
         }
         return diasQueHaLlovido;
     }
+
+    int trimestreLluvioso() {
+        int diasTrimestre1 = 0;
+        int diasTrimestre2 = 0;
+        int diasTrimestre3 = 0;
+        int diasTrimestre4 = 0;
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 31; j++) {
+                if (calendario[i][j]) {
+                    if (i < 3) {
+                        diasTrimestre1++;
+                    } else if (i >= 3 && i < 6) {
+                        diasTrimestre2++;
+                    } else if (i >= 6 && i < 9) {
+                        diasTrimestre3++;
+                    } else if (i >= 9 && i < 12) {
+                        diasTrimestre4++;
+                    }
+                }
+            }
+        }
+        int trimestreMasLLuvioso = 0;
+        if (diasTrimestre1 > diasTrimestre2 && diasTrimestre1 > diasTrimestre3 && diasTrimestre1 > diasTrimestre4){
+            trimestreMasLLuvioso = 1;
+        } else if (diasTrimestre2 > diasTrimestre1 && diasTrimestre2 > diasTrimestre3 && diasTrimestre2 > diasTrimestre4){
+            trimestreMasLLuvioso = 2;
+        } else if (diasTrimestre3 > diasTrimestre2 && diasTrimestre3 > diasTrimestre1 && diasTrimestre3 > diasTrimestre4){
+            trimestreMasLLuvioso = 3;
+        } else if (diasTrimestre4 > diasTrimestre2 && diasTrimestre4 > diasTrimestre3 && diasTrimestre4 > diasTrimestre1){
+            trimestreMasLLuvioso = 4;
+        }
+        return diasTrimestre1;
+    }
+
 }
