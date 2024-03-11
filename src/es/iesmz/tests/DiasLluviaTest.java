@@ -5,53 +5,62 @@ import org.junit.jupiter.api.Test;
 class DiasLluviaTest {
     static DiasLluvia diasLluvia;
     @Test
-    public void registroDiaBien(){
+    void registroDiaBien(){
         diasLluvia = new DiasLluvia();
-        assertTrue(diasLluvia.registroDia(1, 1, true));
+        assertEquals(true, diasLluvia.registroDia(1, 1, true));
     }
 
     @Test
-    public void registroDiaBien2(){
+    void registroDiaBien2(){
         diasLluvia = new DiasLluvia();
-        assertTrue(diasLluvia.registroDia(1, 31, true));
+        assertEquals(true,diasLluvia.registroDia(1, 31, true));
     }
 
     @Test
-    public void registroDiaMal(){
+    void registroDiaMal(){
         diasLluvia = new DiasLluvia();
-        assertFalse(diasLluvia.registroDia(0, 12, true));
+        assertNotEquals(true, diasLluvia.registroDia(0, 12, true));
     }
-
     @Test
-    public void registroDiaMal2(){
-        diasLluvia = new DiasLluvia();
-        assertFalse(diasLluvia.registroDia(2, 31, true));
-    }
-
-    @Test
-    public void constaDiaBien1(){
+    void constaDiaBien1(){
         diasLluvia = new DiasLluvia();
         diasLluvia.registroDia(1, 1, true);
-        assertTrue(diasLluvia.consultaDia(1, 1));
+        assertEquals(true,diasLluvia.consultaDia(1, 1));
     }
 
     @Test
-    public void constaDiaBien2(){
+    void constaDiaBien2(){
         diasLluvia = new DiasLluvia();
         diasLluvia.registroDia(12, 16, true);
-        assertTrue(diasLluvia.consultaDia(12, 16));
+        assertEquals(true, diasLluvia.consultaDia(12, 16));
     }
 
     @Test
-    public void constaDiaFalse1(){
+    void constaDiaFalse1(){
         diasLluvia = new DiasLluvia();
-        assertFalse(diasLluvia.consultaDia(1, 2));
+        assertNotEquals(true,diasLluvia.consultaDia(1, 2));
     }
 
     @Test
-    public void constaDiaFalse2(){
+    void contarDiasBien1(){
         diasLluvia = new DiasLluvia();
-        diasLluvia.registroDia(2, 5, true);
-        assertFalse(diasLluvia.consultaDia(2, 6));
+        diasLluvia.registroDia(1, 2, true);
+        diasLluvia.registroDia(2, 6, true);
+        diasLluvia.registroDia(4, 5, true);
+        diasLluvia.registroDia(9,30, true);
+        assertEquals(4,  diasLluvia.contarDiasLluvia());
     }
+
+    @Test
+    void contarDiasBien2(){
+        diasLluvia = new DiasLluvia();
+        assertEquals(0,  diasLluvia.contarDiasLluvia());
+    }
+
+    @Test
+    void contarDiasLLuviaMal(){
+        diasLluvia = new DiasLluvia();
+        assertNotEquals(2, diasLluvia.contarDiasLluvia());
+    }
+
 }
