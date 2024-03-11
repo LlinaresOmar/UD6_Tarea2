@@ -1,22 +1,12 @@
 package es.iesmz.tests;
-
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
 class DiasLluviaTest {
-
-    @org.junit.jupiter.api.Test
-    void consultaDia() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void contarDiasLluvia() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void trimestreLluvioso() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void primerDiaLluvia() {
+    static DiasLluvia diasLluvia;
+    @Test
+    public void registroDiaBien(){
+        diasLluvia = new DiasLluvia();
+        assertTrue(diasLluvia.registroDia(1, 1, true));
     }
 }

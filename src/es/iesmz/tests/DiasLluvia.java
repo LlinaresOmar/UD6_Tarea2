@@ -8,7 +8,7 @@ public class DiasLluvia {
         this.calendario = new boolean[12][31];
     }
 
-    private boolean registroDia(int mes, int dia, boolean haLlovido){
+    public boolean registroDia(int mes, int dia, boolean haLlovido){
         boolean registro = false;
         if ((mes >= 1 && mes <= 12)) {
             if (mes == 2){
@@ -31,11 +31,11 @@ public class DiasLluvia {
         return registro;
     }
 
-    boolean consultaDia(int mes, int dia){
+    public boolean consultaDia(int mes, int dia){
         return calendario[mes-1][dia-1];
     }
 
-    int contarDiasLluvia(){
+    public int contarDiasLluvia(){
         int diasQueHaLlovido = 0;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 31; j++) {
@@ -47,7 +47,7 @@ public class DiasLluvia {
         return diasQueHaLlovido;
     }
 
-    int trimestreLluvioso() {
+    public int trimestreLluvioso() {
         int diasTrimestre1 = 0;
         int diasTrimestre2 = 0;
         int diasTrimestre3 = 0;
@@ -80,7 +80,7 @@ public class DiasLluvia {
         return trimestreMasLLuvioso;
     }
 
-    int primerDiaLluvia(){
+    public int primerDiaLluvia(){
         int diaLluvia = 0, mesLluvia = 0, diaAnyoLluvia = 0;
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 31; j++) {
