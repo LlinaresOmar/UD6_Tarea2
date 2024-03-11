@@ -94,4 +94,24 @@ class DiasLluviaTest {
         assertNotEquals(2, diasLluvia.trimestreLluvioso());
     }
 
+    @Test
+    void primerDiaLluvia1(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(1, 1, true);
+        assertEquals(1, diasLluvia.primerDiaLluvia());
+    }
+
+    @Test
+    void primerDiaLluvia2(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(3, 1, true);
+        assertEquals(61, diasLluvia.primerDiaLluvia());
+    }
+    @Test
+    void primerDiaLluviaMal1(){
+        diasLluvia = new DiasLluvia();
+        diasLluvia.registroDia(3, 1, true);
+        assertNotEquals(261, diasLluvia.primerDiaLluvia());
+    }
+
 }

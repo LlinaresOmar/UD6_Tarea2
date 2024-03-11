@@ -80,20 +80,23 @@ public class DiasLluvia {
         return trimestreMasLLuvioso;
     }
 
-    public int primerDiaLluvia(){
-        int diaLluvia = 0, mesLluvia = 0, diaAnyoLluvia = 0;
+    public int primerDiaLluvia() {
+        int diaLluvia = -1, mesLluvia = -1, diaAnyoLluvia = -1;
+
         for (int i = 0; i < 12; i++) {
             for (int j = 0; j < 31; j++) {
-                if (calendario[i][j]){
-                    diaLluvia = j +1;
+                if (calendario[i][j]) {
+                    diaLluvia = j+1;
                     mesLluvia = i;
-                } else {
-                    diaLluvia = -1;
-                    mesLluvia = -1;
+                    diaAnyoLluvia = mesLluvia * 31 + diaLluvia; // Corregimos la fórmula
+                    if (mesLluvia >= 2){
+                        diaAnyoLluvia -= 2;
+                    }
+                    break;
                 }
             }
         }
-        diaAnyoLluvia = mesLluvia*(30+1)+(mesLluvia/2)+diaLluvia;
+
         return diaAnyoLluvia;
     }
 
